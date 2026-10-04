@@ -664,7 +664,7 @@ export default function StudentDashboardContent() {
     }
 
     const { data: peerAvgResult } = await supabase.rpc('get_mentor_peer_avg_score');
-    setPeerStats((prev) => ({ ...prev, avgScore: Math.round(peerAvgResult || 0) }));
+    setPeerStats((prev) => ({ myScore: prev?.myScore ?? 0, avgScore: Math.round(peerAvgResult || 0) }));
 
     setReflectionsLoading(false);
   }, [supabase]);
@@ -863,7 +863,7 @@ export default function StudentDashboardContent() {
   const myPerfScore = calcPerformanceScore(reflections, avgScore, avgFeedbackScore);
 
   useEffect(() => {
-    setPeerStats((prev) => ({ ...prev, myScore: myPerfScore }));
+    setPeerStats((prev) => ({ avgScore: prev?.avgScore ?? 0, myScore: myPerfScore }));
   }, [myPerfScore]);
 
   const filterOptions: { value: FilterOption; label: string; icon: string }[] = [

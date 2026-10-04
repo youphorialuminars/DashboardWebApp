@@ -11,10 +11,10 @@ import { Toaster } from 'sonner';
 import { createClient } from '@/lib/supabase/client';
 
 // Function to clean up ugly database errors into short, friendly text
-function formatErrorMessage(error) {
+function formatErrorMessage(error: unknown): string {
   if (!error) return "Something went wrong. Please try again.";
   
-  const rawMessage = typeof error === "string" ? error : (error.message || String(error));
+  const rawMessage = typeof error === "string" ? error : ((error as { message?: string }).message || String(error));
 
   // If the error is HTML code (like <!DOCTYPE...) or too long
   if (
@@ -30,7 +30,7 @@ function formatErrorMessage(error) {
 }
 
 type AuthTab = 'login' | 'signup' | 'reset';
-type UserRole = 'mentor' | 'student' | 'parent' | 'counselor' | 'school' | 'admin';
+type UserRole = 'mentor' | 'student' | 'student_parent' | 'parent' | 'counselor' | 'school' | 'admin';
 
 // ─── Visible Error Banner ──────────────────────────────────────────────────────
 interface SupabaseErrorBannerProps {

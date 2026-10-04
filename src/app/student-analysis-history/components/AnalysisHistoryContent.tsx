@@ -247,6 +247,7 @@ interface DbStudent {
   trend: string;
   topics: string[];
   notes: string | null;
+  mentor_id: string | null;
 }
 
 const AVATAR_COLORS = ['#7C6FCD', '#5BAD8F', '#D97BB6', '#5B8FD9', '#E8A020', '#C97B7B', '#7BA8C9', '#A594E8', '#8FBD8F', '#D9A05B'];
@@ -710,7 +711,7 @@ export default function StudentDetailView() {
             </div>
           )}
 
-          <AnalysisCards analysis={activeSession.analysis} isNew={isNew} studentId={dbStudent.id} mentorId={dbStudent.mentor_id} />
+          <AnalysisCards analysis={activeSession.analysis} isNew={isNew} studentId={dbStudent.id} mentorId={dbStudent.mentor_id ?? undefined} />
         </div>
       )}
 

@@ -16,6 +16,7 @@ interface StudentProfile {
   grade: string;
   mentor_id: string;
   invite_code: string | null;
+  school_id: string | null;
 }
 
 interface UserProfile {

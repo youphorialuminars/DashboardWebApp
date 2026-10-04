@@ -7,7 +7,7 @@ interface UserProfile {
   id: string;
   email: string;
   full_name: string;
-  role: 'mentor' | 'student' | 'counselor' | 'school';
+  role: 'mentor' | 'student' | 'student_parent' | 'parent' | 'counselor' | 'school' | 'admin';
   mentor_id: string | null;
   student_id: string | null;
   mentor_code: string | null;

@@ -25,9 +25,8 @@ interface TaskRow {
 
 interface AttendanceRow {
   id: string;
-  date: string;
+  attendance_date: string;
   status: 'present' | 'absent';
-  topic: string | null;
 }
 
 interface SessionRow {

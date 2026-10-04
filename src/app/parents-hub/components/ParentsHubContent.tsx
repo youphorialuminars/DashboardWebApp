@@ -26,6 +26,7 @@ interface LinkedStudent {
   sessions: number;
   trend: string;
   topics: string[];
+  student_user_id: string | null;
 }
 
 interface MentorProfile {
